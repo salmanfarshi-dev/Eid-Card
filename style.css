@@ -87,6 +87,7 @@
     0 0 10px #fbc2eb;
   text-transform: uppercase;
   font-size: 30px;
+  text-shadow: 5px 3px 5px #c006ad;
 }
 .text-here a {
   text-decoration: none;
