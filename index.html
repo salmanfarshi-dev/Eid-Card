@@ -2,27 +2,112 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eid Mubarak 🌙</title>
-   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+            font-family: Arial;
+        }
+        h2{
+            font-size: 28px;
+            font-weight: 700;
+            color: rgb(255, 0, 187);
+        }
+
+        form{
+            width: 300px;
+            height: 200px;
+            box-shadow: 0 0 20px rgb(255, 3, 171);
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        input{
+            padding: 10px;
+            width: 200px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            outline: none;
+            border: 1px solid rgba(255, 0, 191, 0.77);
+            transition: border 0.3s ease;
+            position: relative;
+           
+        }
+        input:focus{
+              border: 1px solid rgb(255, 0, 191);
+        }
+        input::placeholder{
+            color: pink;
+        }
+
+        button{
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 20px;
+            border: none;
+            background: transparent;
+            box-shadow: 0 0 5px rgba(251, 1, 180, 0.6);
+            color: rgb(255, 10, 239);
+            font-size: 14px;
+            font-weight: 600;
+            transition: box-shadow 0.3s ease;
+        }
+        button:hover{
+             box-shadow: 0 0 20px rgba(251, 1, 180, 0.6);
+        }
+
+        .error{
+            color: red;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-    <div class="eid-card">
-        <div class="card">
-            <div class="text-here">
-                <span>Eid Mubarak 🌙 </span>
-                <div class="image">
-                    <img src="images/cute-picchi.jpeg" alt="">
-                    <img src="images/flower.jpg" alt="">
-                </div>
-                <h2> 💖 My Dear Best Friend ❤️</h2>
-                <h1>Shifa Islam Srity</h1>
-                <a href="message.html">  Message ❤️ </a>
-            </div>
 
-        </div>
-    </div>
+<form id="loginForm">
+    <h2>Login</h2>
+    
+    <input type="text" id="name" placeholder="Name">
+    <br>
+    
+    <div class="error" id="errorMsg"></div>
+    
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    let form = document.getElementById("loginForm");
+    let nameInput = document.getElementById("name");
+    let errorMsg = document.getElementById("errorMsg");
+
+    form.addEventListener("submit", function(e){
+        e.preventDefault();
+
+        let name = nameInput.value.trim();
+
+        // ❌ empty check
+        if(name === ""){
+            errorMsg.innerText = "Name required!";
+            return;
+        }
+
+        // 🔥 optional: specific name check
+        if(name !== "Shifa"){
+            errorMsg.innerText = "You are not  allowed 😎";
+            return;
+        }
+
+        // ✅ success → redirect
+        window.location.href = "card.html";
+    });
+</script>
+
 </body>
 </html>
